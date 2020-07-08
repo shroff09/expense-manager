@@ -4,7 +4,7 @@ const route = require("./routes/router");
 const app = express();
 const PORT = 3001;
 
-const url = "mongodb+srv://ankit:SHURU@ankit9@cluster0.wpybt.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const url = "mongodb+srv://ankit:<password>@cluster0.wpybt.mongodb.net/<dbname>?retryWrites=true&w=majority";
 mongoose.connect(url,{useNewUrlParser:true, useUnifiedTopology:true});
 mongoose.connection.on('error',console.error.bind(console,'connection error:'));
 mongoose.connection.once('open',()=>{

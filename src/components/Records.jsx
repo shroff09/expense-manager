@@ -67,12 +67,12 @@ const Records = () => {
                     <span className="expense"> <Expense expense={lists.amt} /></span>
                 </div>
                 <div className="inputs">
-                    <span className="addtranc">Add new transaction</span><br /><hr />
+                    <span className="addtranc">Add new transaction</span><br /><hr /> 
                     <label>Text</label><br />
                     <input type="text" value={text} onChange={(e) => settext(e.target.value)} />
                     <br />
                     <label>Amount</label><br />
-                    <input type="text" value={amount} onChange={(e) => setamount(e.target.value)} />
+                    <input type="text" value={amount} onChange={(e) =>{const re = /^[+-]?[0-9]*$/ ;if(e.target.value==='' || re.test(e.target.value)){setamount(e.target.value)}}} />
 
                 </div>
                 <button className="addbtn" onClick={clickhandler} >add</button>

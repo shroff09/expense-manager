@@ -1,3 +1,4 @@
+import { red } from '@material-ui/core/colors';
 import React, { useState, useEffect } from 'react';
  
 import './style.css';
@@ -25,6 +26,9 @@ const Records = () => {
         .then(data => setlist(data.lists))
     })
 
+    
+    //const color  = (lists.amt >= 0) ? "green" : "red";
+
     const clickhandler = () => {
         addtransaction();
         Sumincome();
@@ -33,6 +37,7 @@ const Records = () => {
         settext('');
         setamount([]);
     }
+
     const Sumincome = () => {
         let sum = lists.reduce((a, b) => a += parseInt(b.amt), 0);
         // console.log(sum);
@@ -82,10 +87,13 @@ const Records = () => {
                 <h2>History</h2>
                 <hr />
                 <ul>
-                    {lists.map((list) => (<li style={{borderRight:`5px solid ${(list.amt>0)?"green":"red"}`}} key={list.index}>
-                        <h3 id="item">{list.tranc}</h3>
-                        <h3 id="amount">{list.amt}</h3>
 
+                    {lists.map((list) => (<li style={{borderRight:`10px solid ${(list.amt>=0)?"green":"red"}`}} key={list.index}>
+                  
+
+                        <h3 id="item">{list.tranc}</h3>
+                        <h3  id="amount">{list.amt}</h3>
+                  
                         <button id="remove" onClick={() => setlist(lists.filter((item) => item.index !== list.index))} >X</button>
 
 

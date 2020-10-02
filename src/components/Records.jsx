@@ -82,7 +82,7 @@ const Records = () => {
                 <h2>History</h2>
                 <hr />
                 <ul>
-                    {lists.map((list) => (<li key={list.index}>
+                    {lists.map((list) => (<li style={{borderRight:`5px solid ${(list.amt>0)?"green":"red"}`}} key={list.index}>
                         <h3 id="item">{list.tranc}</h3>
                         <h3 id="amount">{list.amt}</h3>
 
